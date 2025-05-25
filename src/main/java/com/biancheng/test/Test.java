@@ -20,27 +20,27 @@ public class Test {
         // 通过SqlSessionFactory创建SqlSession
         SqlSession ss = ssf.openSession();
 
-//        Website website = new Website();
-//        website.setName("haha");
-//        website.setUrl("abc");
-//        website.setAge(40);
-//        website.setCountry("BC");
-//        website.setCreatetime(new Date());
-//        ss.insert("com.biancheng.mapper.WebsiteMapper.insertWebsite", website);
-//        ss.commit();
-
         Website website = new Website();
-        website.setId(1);
-        website.setName("张三");
-        website.setUrl("CD");
-        website.setAge(10);
+        website.setName("haha");
+        website.setUrl("abc");
+        website.setAge(40);
         website.setCountry("BC");
         website.setCreatetime(new Date());
-        ss.update("com.biancheng.mapper.WebsiteMapper.updateWebsite", website);
+        ss.insert("com.biancheng.mapper.WebsiteMapper.insertWebsite", website);
         ss.commit();
 
-//        ss.delete("com.biancheng.mapper.WebsiteMapper.deleteWebsite", 1);
+//        Website website = new Website();
+//        website.setId(1);
+//        website.setName("张三");
+//        website.setUrl("CD");
+//        website.setAge(10);
+//        website.setCountry("BC");
+//        website.setCreatetime(new Date());
+//        ss.update("com.biancheng.mapper.WebsiteMapper.updateWebsite", website);
 //        ss.commit();
+
+        ss.delete("com.biancheng.mapper.WebsiteMapper.deleteWebsite", 1);
+        ss.commit();
 
         List<Website> list = ss.selectList("com.biancheng.mapper.WebsiteMapper.queryAllInfo");
         for (Website websites : list) {
