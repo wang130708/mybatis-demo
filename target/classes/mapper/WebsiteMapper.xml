@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.biancheng.mapper.WebsiteMapper">
+    
+    <select id="queryAllInfo" resultType="com.biancheng.po.Website">
+        select id,name,url,age,country,createtime from website order by id
+    </select>
+
+    <insert id="insertWebsite" parameterType="com.biancheng.po.Website">
+        insert into website(name,url,age,country,createtime)
+        values(#{name},#{url},#{age},#{country},#{createtime})
+    </insert>
+
+    <update id="updateWebsite" parameterType="com.biancheng.po.Website">
+        update website set name=#{name},url=#{url},age=#{age},country=#{country},createtime=#{createtime}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteWebsite" parameterType="int">
+        delete from website where id = #{id}
+    </delete>
+
+</mapper>

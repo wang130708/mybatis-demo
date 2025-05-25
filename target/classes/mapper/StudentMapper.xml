@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.biancheng.mapper.StudentMapper">
+
+    <resultMap id="cardAndStu1" type="com.biancheng.po.Student">
+        <id property="id" column="id" />
+        <result property="name" column="name" />
+        <result property="sex" column="sex" />
+        <result property="sex" column="sex" />
+        <result property="cardId" column="cardId" />
+        <association property="studentCard" column="id"
+                     javaType="com.biancheng.po.StudentCard"
+                    select="com.biancheng.mapper.StudentCardMapper.selectStudentCardById"/>
+
+    </resultMap>
+    
+    <select id="selectById" parameterType="integer" resultMap="cardAndStu1">
+        select id,name,sex,cardId from student where id = #{id}
+    </select>
+</mapper>
